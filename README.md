@@ -1,5 +1,6 @@
 # Odoo_X_Paradox
-
+VIDEO LINK 
+https://drive.google.com/file/d/1Fu7eOdYvASexOiv6HWS3HaManhiFfluO/view?usp=sharing
 ## 🧬 Structure
 
 ```
