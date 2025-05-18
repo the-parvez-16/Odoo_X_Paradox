@@ -30,6 +30,7 @@ Odoo_X_Paradox/                ← root
 │   └── server.js
 |                
 └── README.md
+```
 
 
 # Community Connect Platform
