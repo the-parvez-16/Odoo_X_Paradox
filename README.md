@@ -100,7 +100,7 @@ Modern neighborhoods and local communities often lack centralized, accessible di
 ## 📌 Getting Started
 bash
 # Clone the repository
-git clone https://github.com/your-repo/community-connect.git
+git clone https://github.com/the-parvez-16/Odoo_X_Paradox/tree/main
 cd community-connect
 
 # Install dependencies
