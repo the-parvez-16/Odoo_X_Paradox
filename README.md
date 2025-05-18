@@ -3,7 +3,7 @@
 ## 🧬 Structure
 
 ```
-NovaLayer/                ← root
+Odoo_X_Paradox/                ← root
 ├── public/               ← contains all static files
 │   ├── src/
 │   │   ├── scripts/
