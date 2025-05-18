@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // DOM Elements
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModals = document.querySelectorAll('.close-modal');
     const categoryFilters = document.querySelectorAll('.category-filter');
     const loadMoreBtn = document.querySelector('.btn-load-more');
-    
+
     // Sample events data with coordinates for each city
     let events = [
         // Bangalore events
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             location: "Cubbon Park, Bangalore",
             city: "bangalore",
             coordinates: { lat: 12.9768, lng: 77.5950 },
-            image: "https://source.unsplash.com/random/600x400/?yoga",
+            image: " https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHlvZ2F8ZW58MHx8MHx8fDA%3D",
             organizer: "Wellness Community",
             attendees: 24,
             verified: true
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             location: "Kanteerava Stadium, Bangalore",
             city: "bangalore",
             coordinates: { lat: 12.9719, lng: 77.5937 },
-            image: "https://source.unsplash.com/random/600x400/?football",
+            image: "https://plus.unsplash.com/premium_photo-1661868926397-0083f0503c07?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vdGJhbGx8ZW58MHx8MHx8fDA%3D",
             organizer: "Bangalore Sports Club",
             attendees: 18,
             verified: true
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
             location: "Juhu Beach, Mumbai",
             city: "mumbai",
             coordinates: { lat: 19.1077, lng: 72.8263 },
-            image: "https://source.unsplash.com/random/600x400/?art,workshop",
+            image: "https://media.istockphoto.com/id/1502307141/photo/garage-sale-clothes-for-sale-hanging-on-hanger-outdoors.webp?a=1&b=1&s=612x612&w=0&k=20&c=EjJM01kj2XogAeM5xZY5Ec24RJiESjwgaCJt4KsmVkQ=",
             organizer: "Creative Minds",
             attendees: 15,
             verified: true
@@ -110,13 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
             verified: true
         }
     ];
-    
+
     let currentCity = 'bangalore';
     let currentCategory = 'all';
     let displayedEvents = 6;
     let map;
     let markers = [];
-    
+
     // City coordinates
     const cityCoordinates = {
         'bangalore': { lat: 12.9716, lng: 77.5946 },
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'kolkata': { lat: 22.5726, lng: 88.3639 },
         'pune': { lat: 18.5204, lng: 73.8567 }
     };
-    
+
     // Initialize Google Map
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -145,20 +145,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ]
         });
-        
+
         addEventMarkers();
     }
-    
+
     function addEventMarkers() {
         // Clear existing markers
         clearMarkers();
-        
+
         // Filter events by current city and category
-        const filteredEvents = events.filter(event => 
-            event.city === currentCity && 
+        const filteredEvents = events.filter(event =>
+            event.city === currentCity &&
             (currentCategory === 'all' || event.category === currentCategory)
         );
-        
+
         filteredEvents.forEach(event => {
             const marker = new google.maps.Marker({
                 position: event.coordinates,
@@ -169,15 +169,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     scaledSize: new google.maps.Size(30, 30)
                 }
             });
-            
+
             markers.push(marker);
-            
+
             // Add click event to show event details
-            marker.addListener('click', function() {
+            marker.addListener('click', function () {
                 openEventModal(event);
             });
         });
-        
+
         // Adjust map view to show all markers if there are any
         if (filteredEvents.length > 0) {
             const bounds = new google.maps.LatLngBounds();
@@ -187,12 +187,12 @@ document.addEventListener('DOMContentLoaded', function() {
             map.fitBounds(bounds);
         }
     }
-    
+
     function clearMarkers() {
         markers.forEach(marker => marker.setMap(null));
         markers = [];
     }
-    
+
     function getMarkerIcon(category) {
         const color = {
             'garage-sales': 'FF5252',
@@ -201,23 +201,23 @@ document.addEventListener('DOMContentLoaded', function() {
             'volunteer': '2196F3',
             'festivals': '9C27B0'
         }[category] || '607D8B';
-        
+
         return `https://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
     }
-    
+
     // Mobile menu toggle
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function () {
         navLinks.classList.toggle('active');
     });
-    
+
     // City selection change
-    citySelect.addEventListener('change', function() {
+    citySelect.addEventListener('change', function () {
         currentCity = this.value;
         updateCityName();
         filterEvents();
         updateMapCenter();
     });
-    
+
     function updateCityName() {
         const cityNames = {
             'bangalore': 'Bangalore',
@@ -228,53 +228,60 @@ document.addEventListener('DOMContentLoaded', function() {
             'kolkata': 'Kolkata',
             'pune': 'Pune'
         };
-        
+
         cityNameElements.forEach(el => {
             el.textContent = cityNames[currentCity];
         });
     }
-    
+
     function updateMapCenter() {
         if (map && cityCoordinates[currentCity]) {
             map.setCenter(cityCoordinates[currentCity]);
             addEventMarkers();
         }
     }
-    
+
     // Category filter
     categoryFilters.forEach(filter => {
-        filter.addEventListener('click', function() {
+        filter.addEventListener('click', function () {
             // Update active state
             categoryFilters.forEach(f => f.classList.remove('active'));
             this.classList.add('active');
-            
+
             // Update current category and filter events
             currentCategory = this.dataset.category;
             filterEvents();
         });
     });
-    
+
     // Filter events based on current city and category
-    function filterEvents() {
+    async function filterEvents() {
         displayedEvents = 6;
-        renderEvents();
-        addEventMarkers();
+        try {
+            const res = await fetch(`/api/events?city=${currentCity}&category=${currentCategory}`);
+            events = await res.json();
+            renderEvents();
+            addEventMarkers();
+        } catch (err) {
+            console.error('Error fetching events:', err);
+            eventsGrid.innerHTML = '<p class="no-events">Unable to load events. Please try again later.</p>';
+        }
     }
-    
+
     // Render events to the grid
     function renderEvents() {
         eventsGrid.innerHTML = '';
-        
-        const filteredEvents = events.filter(event => 
-            event.city === currentCity && 
+
+        const filteredEvents = events.filter(event =>
+            event.city === currentCity &&
             (currentCategory === 'all' || event.category === currentCategory)
         ).slice(0, displayedEvents);
-        
+
         if (filteredEvents.length === 0) {
             eventsGrid.innerHTML = '<p class="no-events">No events found matching your criteria.</p>';
             return;
         }
-        
+
         filteredEvents.forEach(event => {
             const eventCard = document.createElement('div');
             eventCard.className = 'event-card';
@@ -294,22 +301,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             `;
-            
+
             eventsGrid.appendChild(eventCard);
         });
-        
+
         // Add event listeners to RSVP buttons
         document.querySelectorAll('.btn-rsvp').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 const eventId = parseInt(this.dataset.id);
                 const event = events.find(e => e.id === eventId);
                 openRsvpModal(event);
             });
         });
-        
+
         // Add click event to event cards to show details
         document.querySelectorAll('.event-card').forEach(card => {
-            card.addEventListener('click', function(e) {
+            card.addEventListener('click', function (e) {
                 if (!e.target.classList.contains('btn-rsvp')) {
                     const eventId = parseInt(this.querySelector('.btn-rsvp').dataset.id);
                     const event = events.find(e => e.id === eventId);
@@ -317,12 +324,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-        
+
         // Show/hide load more button
-        loadMoreBtn.style.display = 
+        loadMoreBtn.style.display =
             events.filter(e => e.city === currentCity).length > displayedEvents ? 'block' : 'none';
     }
-    
+
     function formatCategory(category) {
         const categories = {
             'garage-sales': 'Garage Sale',
@@ -331,57 +338,57 @@ document.addEventListener('DOMContentLoaded', function() {
             'volunteer': 'Volunteer Opportunity',
             'festivals': 'Festival/Celebration'
         };
-        
+
         return categories[category] || category;
     }
-    
+
     function formatDate(dateString) {
         const options = { weekday: 'short', month: 'short', day: 'numeric' };
         return new Date(dateString).toLocaleDateString('en-US', options);
     }
-    
+
     // Event form submission
-    eventForm.addEventListener('submit', function(e) {
+    eventForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
-        // Get form values
+
         const title = document.getElementById('event-title').value;
         const category = document.getElementById('event-category').value;
         const description = document.getElementById('event-description').value;
         const date = document.getElementById('event-date').value;
         const time = document.getElementById('event-time').value;
         const location = document.getElementById('event-location').value;
-        
-        // Create new event with coordinates for the current city
+
         const newEvent = {
-            id: events.length + 1,
             title,
             category,
             description,
             date,
             time,
             location: `${location}, ${document.querySelector('.city-name').textContent}`,
-            city: currentCity,
-            coordinates: getRandomCoordinatesInCity(currentCity),
-            image: "https://source.unsplash.com/random/600x400/?" + category,
-            organizer: "You",
-            attendees: 0,
-            verified: false
+            city: currentCity
         };
-        
-        // Add to events array
-        events.unshift(newEvent);
-        
-        // Reset form
-        eventForm.reset();
-        
-        // Show success message
-        alert('Event created successfully!');
-        
-        // Refresh events list
-        filterEvents();
+
+        try {
+            const res = await fetch('/api/events', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newEvent)
+            });
+
+            if (res.ok) {
+                alert('Event created successfully!');
+                eventForm.reset();
+                filterEvents();
+            } else {
+                const err = await res.json();
+                alert('Error: ' + err.message);
+            }
+        } catch (err) {
+            console.error('Error creating event:', err);
+            alert('Something went wrong. Please try again.');
+        }
     });
-    
+
     function getRandomCoordinatesInCity(city) {
         // Return random coordinates within the city area
         const center = cityCoordinates[city];
@@ -390,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
             lng: center.lng + (Math.random() * 0.05 - 0.025)
         };
     }
-    
+
     // Open event modal
     function openEventModal(event) {
         const modalBody = eventModal.querySelector('.modal-body');
@@ -415,16 +422,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
+
         // Add event listener to RSVP button in modal
-        modalBody.querySelector('.btn-rsvp-modal').addEventListener('click', function() {
+        modalBody.querySelector('.btn-rsvp-modal').addEventListener('click', function () {
             eventModal.style.display = 'none';
             openRsvpModal(event);
         });
-        
+
         eventModal.style.display = 'block';
     }
-    
+
     // Open RSVP modal
     function openRsvpModal(event) {
         const modalBody = rsvpModal.querySelector('.modal-body');
@@ -451,48 +458,85 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button type="submit" class="btn btn-primary">Confirm Attendance</button>
             </form>
         `;
-        
+
         // Handle RSVP form submission
         const rsvpForm = document.getElementById('rsvp-form');
         if (rsvpForm) {
-            rsvpForm.addEventListener('submit', function(e) {
+            rsvpForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 const name = document.getElementById('rsvp-name').value;
                 const email = document.getElementById('rsvp-email').value;
                 const phone = document.getElementById('rsvp-phone').value;
                 const guests = parseInt(document.getElementById('rsvp-guests').value) || 0;
-                
+
                 // Update the attendees count
                 const eventIndex = events.findIndex(e => e.id === event.id);
                 if (eventIndex !== -1) {
                     events[eventIndex].attendees += 1 + guests;
                 }
-                
+
                 // Show success message
                 alert(`Thanks, ${name}! Your RSVP has been confirmed. You'll receive a reminder before the event.`);
-                
+
                 // Close modal
                 rsvpModal.style.display = 'none';
-                
+
                 // Refresh events list
                 filterEvents();
             });
         }
-        
+
         rsvpModal.style.display = 'block';
     }
-    
+
+    rsvpForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('rsvp-name').value;
+        const email = document.getElementById('rsvp-email').value;
+        const phone = document.getElementById('rsvp-phone').value;
+        const guests = parseInt(document.getElementById('rsvp-guests').value) || 0;
+
+        const rsvpData = {
+            eventId: event.id,
+            name,
+            email,
+            phone,
+            guests
+        };
+
+        try {
+            const res = await fetch('/api/rsvp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(rsvpData)
+            });
+
+            if (res.ok) {
+                alert(`Thanks, ${name}! Your RSVP has been confirmed.`);
+                rsvpModal.style.display = 'none';
+                filterEvents(); // reload updated attendee count
+            } else {
+                const err = await res.json();
+                alert('RSVP failed: ' + err.message);
+            }
+        } catch (err) {
+            console.error('Error submitting RSVP:', err);
+            alert('Something went wrong. Please try again.');
+        }
+    });
+
     // Close modals
     closeModals.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             eventModal.style.display = 'none';
             rsvpModal.style.display = 'none';
         });
     });
-    
+
     // Close modal when clicking outside
-    window.addEventListener('click', function(e) {
+    window.addEventListener('click', function (e) {
         if (e.target === eventModal) {
             eventModal.style.display = 'none';
         }
@@ -500,26 +544,26 @@ document.addEventListener('DOMContentLoaded', function() {
             rsvpModal.style.display = 'none';
         }
     });
-    
+
     // Load more events
-    loadMoreBtn.addEventListener('click', function() {
+    loadMoreBtn.addEventListener('click', function () {
         displayedEvents += 3;
         renderEvents();
     });
-    
+
     // Scroll effect for navbar
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
             document.querySelector('.navbar').classList.add('scrolled');
         } else {
             document.querySelector('.navbar').classList.remove('scrolled');
         }
     });
-    
+
     // Initialize the page
     updateCityName();
     renderEvents();
-    
+
     // For demo purposes, we'll use a timeout to simulate map loading
     // In a real app, you would use the Google Maps API with your key
     setTimeout(() => {
