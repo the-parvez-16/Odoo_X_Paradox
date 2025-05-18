@@ -5,9 +5,14 @@
 ```
 Odoo_X_Paradox/                ← root
 ├── public/               ← contains all static files
+│   ├── index.html
 │   ├── src/
+│   │   ├── HTML/
+│   │   │   ├── login.html
+│   │   │   └── signup.html
 │   │   ├── scripts/
-│   │   │   ├── form.js
+│   │   │   ├── login.js
+│   │   │   ├── signup.js
 │   │   │   └── script.js
 │   │   └── styles/
 │   │       ├── footer.css
@@ -16,9 +21,13 @@ Odoo_X_Paradox/                ← root
 │   └── images/
 │       └──images 
 |
-├── backend/   
+├── backend/
+│   ├── .env
+│   ├── db.js
+│   ├── db.sql
+│   ├── routes/
+│   │   └──auth.js
 │   └── server.js
-|
-├── index.html                  
+|                
 └── README.md
 ```

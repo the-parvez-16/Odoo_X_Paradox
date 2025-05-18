@@ -35,7 +35,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
-    
 }
 
 h1, h2, h3, h4 {
@@ -354,8 +353,8 @@ a:hover {
 }
 
 .events-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 25px;
     margin-top: 30px;
 }
@@ -366,9 +365,6 @@ a:hover {
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 .event-card:hover {
@@ -451,16 +447,10 @@ a:hover {
 .create-event {
     padding: 60px 0;
     background-color: white;
-    grid-template-columns: 4fr 4fr 4fr;
-}
-
-
-.container{
-    width:100%;
 }
 
 .event-form {
-    max-width: 1200px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 30px;
     background-color: var(--bg-color);
@@ -697,10 +687,6 @@ a:hover {
         flex-direction: column;
         gap: 0;
     }
-    
-    .event-card {
-        max-width: 100%;
-    }
 }
 
 @media (max-width: 576px) {
@@ -733,8 +719,4 @@ a:hover {
     .category-filter {
         white-space: nowrap;
     }
-}
-.navbarcss{
-  display: flex !important;
-  justify-content: space-between;
 }

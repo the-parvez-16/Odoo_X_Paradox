@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event form submission
     eventForm.addEventListener('submit', function(e) {
         e.preventDefault();
-
+        
         // Get form values
         const title = document.getElementById('event-title').value;
         const category = document.getElementById('event-category').value;
@@ -351,43 +351,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const date = document.getElementById('event-date').value;
         const time = document.getElementById('event-time').value;
         const location = document.getElementById('event-location').value;
-        const photoInput = document.getElementById('event-photo');
-        const file = photoInput.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                const imageUrl = event.target.result;
-                createEventWithImage(imageUrl);
-            };
-            reader.readAsDataURL(file);
-        } else {
-            // Fallback to Unsplash if no image uploaded
-            createEventWithImage("https://source.unsplash.com/random/600x400/?" + category + "&sig=" + Date.now());
-        }
-
-        function createEventWithImage(imageUrl) {
-            const newEvent = {
-                id: events.length + 1,
-                title,
-                category,
-                description,
-                date,
-                time,
-                location: `${location}, ${document.querySelector('.city-name').textContent}`,
-                city: currentCity,
-                coordinates: getRandomCoordinatesInCity(currentCity),
-                image: imageUrl,
-                organizer: "You",
-                attendees: 0,
-                verified: false
-            };
-
-            events.unshift(newEvent);
-            eventForm.reset();
-            alert('Event created successfully!');
-            filterEvents();
-        }
+        
+        // Create new event with coordinates for the current city
+        const newEvent = {
+            id: events.length + 1,
+            title,
+            category,
+            description,
+            date,
+            time,
+            location: `${location}, ${document.querySelector('.city-name').textContent}`,
+            city: currentCity,
+            coordinates: getRandomCoordinatesInCity(currentCity),
+            image: "https://source.unsplash.com/random/600x400/?" + category,
+            organizer: "You",
+            attendees: 0,
+            verified: false
+        };
+        
+        // Add to events array
+        events.unshift(newEvent);
+        
+        // Reset form
+        eventForm.reset();
+        
+        // Show success message
+        alert('Event created successfully!');
+        
+        // Refresh events list
+        filterEvents();
     });
     
     function getRandomCoordinatesInCity(city) {
