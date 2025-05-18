@@ -1,0 +1,149 @@
+body {
+  background: #f7f7fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 36px 32px 28px 32px;
+}
+
+.login-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  margin-top: 18px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f4f6fa;
+  border: 1.5px solid #e0e4ea;
+  border-radius: 8px;
+  padding: 0 12px;
+  margin-bottom: 4px;
+}
+
+.input-icon {
+  color: #b0b4c1;
+  font-size: 1.1rem;
+  margin-right: 8px;
+}
+
+.input-group input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px 0 20px 0;
+  font-size: 0.98rem;
+}
+
+.forgot-link {
+  color: #2675ec;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.signin-btn {
+  width: 100%;
+  background: #181818;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 0;
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.signin-btn:hover {
+  background: #333;
+}
+
+.signup-link {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 0.98rem;
+}
+
+.signup-link a {
+  color: #2675ec;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.or-divider {
+  text-align: center;
+  margin: 18px 0 14px 0;
+  color: #b0b4c1;
+  font-size: 0.98rem;
+  position: relative;
+}
+
+.or-divider::before, .or-divider::after {
+  content: "";
+  display: inline-block;
+  width: 38%;
+  height: 1px;
+  background: #e0e4ea;
+  vertical-align: middle;
+  margin: 0 8px;
+}
+
+.social-login {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.social-btn {
+  flex: 1;
+  border: 1.5px solid #e0e4ea;
+  background: #fff;
+  color: #181818;
+  border-radius: 10px;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+}
+
+.social-btn.google:hover {
+  border-color: #ea4335;
+  background: #f9ecec;
+}
+
+.social-btn.apple:hover {
+  border-color: #181818;
+  background: #f2f2f2;
+}
