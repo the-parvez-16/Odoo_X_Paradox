@@ -1,0 +1,142 @@
+:root {
+            --primary-color: #178582;
+            --secondary-color: #1A2238;
+            --accent-color: #BFA181;
+            --gradient: linear-gradient(135deg, #1A2238 0%, #178582 100%);
+        }
+        body {
+            background: var(--secondary-color);
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            color: #f8f9fa;
+        }
+        .navbar {
+            background: rgba(26,34,56, 0.97) !important;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            border-bottom: 1px solid #232b44;
+        }
+        .navbar-brand,
+        .nav-link {
+            color: #fff !important;
+        }
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        .navbar .profile-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+            margin-left: 1rem;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar .profile-icon i {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+        .hero-section {
+            background: var(--gradient), url('https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=1200&q=80') center/cover;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px 0;
+            position: relative;
+        }
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(26,34,56,0.5) 0%, rgba(23,133,130,0.5) 100%);
+            z-index: 1;
+        }
+        .hero-section > .container {
+            position: relative;
+            z-index: 2;
+        }
+        .display-4 {
+            text-shadow: 0 4px 24px rgba(0,0,0,0.25);
+        }
+        .btn-primary, .btn-outline-primary {
+            font-size: 1.1rem;
+            border-radius: 30px;
+            box-shadow: 0 4px 16px rgba(23,133,130,0.08);
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #178582 0%, #1A2238 100%);
+            color: #fff;
+            transform: translateY(-2px) scale(1.04);
+        }
+        .btn-outline-primary {
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            background: transparent;
+        }
+        .btn-outline-primary:hover {
+            background: var(--accent-color);
+            color: #fff;
+        }
+        .btn-outline-light {
+            border: 2px solid #fff;
+            color: #fff;
+            background: transparent;
+        }
+        .btn-outline-light:hover {
+            background: #fff;
+            color: var(--primary-color);
+        }
+        .section-title {
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 40px;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+        }
+        .connect-card {
+            transition: transform 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+            border: none;
+            border-radius: 18px;
+            background: #232b44;
+            box-shadow: 0 2px 16px rgba(23,133,130,0.07);
+            position: relative;
+            overflow: hidden;
+        }
+        .connect-card h3 {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        .connect-card p {
+            color: #cdd3e0;
+        }
+        .connect-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 10px 32px rgba(23,133,130,0.13);
+        }
+        .connect-card::before {
+            content: "";
+            position: absolute;
+            top: -60px; left: -60px;
+            width: 120px; height: 120px;
+            background: var(--gradient);
+            opacity: 0.09;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .connect-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        section:not(:first-child) {
+            border-top: 1px solid #232b44;
+            background: #232b44;
+        }
+        
+   
